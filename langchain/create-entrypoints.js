@@ -66,16 +66,20 @@ const updateConfig = () => {
     ...json,
     exports: Object.fromEntries(
       ["index", ...Object.keys(entrypoints)].map((key) => {
-        const entryPoint = {
+        let entryPoint = {
           types: `./${key}.d.ts`,
           import: `./${key}.js`,
         };
 
-        // If there is a *.lite.js file add it as the `default` export,
+        // If there is a *.lite.js file add it as the root `import` export,
         // which should/will then be used by non-Node environments.
         const litePath = `./dist/${entrypoints[key]}.lite.js`;
         if (fs.existsSync(litePath)) {
-          entryPoint.default = litePath;
+          entryPoint = {
+            types: `./dist/${entrypoints[key]}.d.ts`,
+            node: entryPoint,
+            import: litePath,
+          };
         }
 
         return [key === "index" ? "." : `./${key}`, entryPoint];

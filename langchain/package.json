@@ -260,22 +260,32 @@
       "import": "./chains.js"
     },
     "./embeddings": {
-      "types": "./embeddings.d.ts",
-      "import": "./embeddings.js",
-      "default": "./dist/embeddings/index.lite.js"
+      "types": "./dist/embeddings/index.d.ts",
+      "node": {
+        "types": "./embeddings.d.ts",
+        "import": "./embeddings.js"
+      },
+      "import": "./dist/embeddings/index.lite.js"
     },
     "./llms": {
-      "types": "./llms.d.ts",
-      "import": "./llms.js",
-      "default": "./dist/llms/index.lite.js"
+      "types": "./dist/llms/index.d.ts",
+      "node": {
+        "types": "./llms.d.ts",
+        "import": "./llms.js"
+      },
+      "import": "./dist/llms/index.lite.js"
     },
     "./prompts": {
       "types": "./prompts.d.ts",
       "import": "./prompts.js"
     },
     "./vectorstores": {
-      "types": "./vectorstores.d.ts",
-      "import": "./vectorstores.js"
+      "types": "./dist/vectorstores/index.d.ts",
+      "node": {
+        "types": "./vectorstores.d.ts",
+        "import": "./vectorstores.js"
+      },
+      "import": "./dist/vectorstores/index.lite.js"
     },
     "./text_splitter": {
       "types": "./text_splitter.d.ts",
@@ -294,8 +304,12 @@
       "import": "./docstore.js"
     },
     "./document_loaders": {
-      "types": "./document_loaders.d.ts",
-      "import": "./document_loaders.js"
+      "types": "./dist/document_loaders/index.d.ts",
+      "node": {
+        "types": "./document_loaders.d.ts",
+        "import": "./document_loaders.js"
+      },
+      "import": "./dist/document_loaders/index.lite.js"
     },
     "./chat_models": {
       "types": "./chat_models.d.ts",
