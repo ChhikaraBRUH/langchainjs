@@ -70,6 +70,14 @@ const updateConfig = () => {
           types: `./${key}.d.ts`,
           import: `./${key}.js`,
         };
+
+        // If there is a *.lite.js file add it as the `default` export,
+        // which should/will then be used by non-Node environments.
+        const litePath = `./dist/${entrypoints[key]}.lite.js`;
+        if (fs.existsSync(litePath)) {
+          entryPoint.default = litePath;
+        }
+
         return [key === "index" ? "." : `./${key}`, entryPoint];
       })
     ),

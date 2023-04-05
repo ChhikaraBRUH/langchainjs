@@ -261,11 +261,13 @@
     },
     "./embeddings": {
       "types": "./embeddings.d.ts",
-      "import": "./embeddings.js"
+      "import": "./embeddings.js",
+      "default": "./dist/embeddings/index.lite.js"
     },
     "./llms": {
       "types": "./llms.d.ts",
-      "import": "./llms.js"
+      "import": "./llms.js",
+      "default": "./dist/llms/index.lite.js"
     },
     "./prompts": {
       "types": "./prompts.d.ts",
